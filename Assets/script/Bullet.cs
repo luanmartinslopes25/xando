@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public float speed = 2;
+
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -14,6 +16,6 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(0, 0, 1);
+        rb.velocity = new Vector3(0, speed, 0);
     }
 }
