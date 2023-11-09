@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     public float penetration = 0.2f;
 
     Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
