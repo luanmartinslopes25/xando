@@ -235,7 +235,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874547054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.2
-  spinSpeed: 64
+  spinSpeed: 128
 --- !u!50 &874547057
 Rigidbody2D:
   serializedVersion: 4
@@ -532,7 +532,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1909591350}
-  - component: {fileID: 1909591349}
   - component: {fileID: 1909591348}
   - component: {fileID: 1909591347}
   - component: {fileID: 1909591346}
@@ -641,20 +640,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1909591349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1909591345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9db28d79e83c87d47ace60d130c1ed6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3.2
-  spinSpeed: 64
 --- !u!4 &1909591350
 Transform:
   m_ObjectHideFlags: 0
@@ -663,7 +648,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1909591345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
