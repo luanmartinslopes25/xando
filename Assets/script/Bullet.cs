@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     public float speed = 2;
     public float penetration = 0.2f;
+
+    public Vector3 direction;
 
     Rigidbody2D rb;
 
@@ -18,7 +21,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector3(0, speed, 0);
+        rb.velocity = direction * speed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

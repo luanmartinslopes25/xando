@@ -20,7 +20,7 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Spin
+      // Spin
         if (Input.GetKey(KeyCode.Keypad2))
         {
             rb.rotation += spinSpeed * Time.deltaTime;
@@ -30,7 +30,7 @@ public class Player2 : MonoBehaviour
             rb.rotation -= spinSpeed * Time.deltaTime;
         }
 
-        // Moviment
+      // Moviment
         if (Input.GetKey(KeyCode.UpArrow))
         {
             if (moveVertical <= 1)
