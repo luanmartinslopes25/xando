@@ -909,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 4316839718434926507, guid: 61f34fc4c1ae8dd4aa4134815cf57e4f, type: 3}
-  _bulletSpeed: 2
+  _bulletSpeed: 6
   _bulletCooldown: 0.08
 --- !u!1 &1909591345
 GameObject:

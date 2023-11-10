@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 2;
     public float penetration = 0.2f;
-    public float maxTime = 16f;
+    public float maxTime = 8;
 
     Rigidbody2D rb;
 
@@ -29,7 +29,12 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(Cooldown());
+            StartCoroutine(Penetration());
+        }
+
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            StartCoroutine(Penetration2());
         }
     }
 
@@ -41,14 +46,21 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    IEnumerator Cooldown()
+    IEnumerator Penetration()
     {
         yield return new WaitForSeconds(penetration);
         Destroy(gameObject);
     }
 
+    IEnumerator Penetration2()
+    {
+        yield return new WaitForSeconds(2.4f);
+        Destroy(gameObject);
+    }
+
     IEnumerator TimeDespawn()
     {
-        yield return new WaitForSeconds(MaxTime);
+        yield return new WaitForSeconds(maxTime);
+        Destroy(gameObject);
     }
 }
