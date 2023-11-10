@@ -7,8 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 2;
     public float penetration = 0.2f;
-
-    public Vector3 direction;
+    public float maxTime = 16f;
 
     Rigidbody2D rb;
 
@@ -16,12 +15,14 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        StartCoroutine(TimeDespawn());
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = direction * speed;
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,5 +45,10 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(penetration);
         Destroy(gameObject);
+    }
+
+    IEnumerator TimeDespawn()
+    {
+        yield return new WaitForSeconds(MaxTime);
     }
 }

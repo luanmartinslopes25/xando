@@ -405,8 +405,6 @@ GameObject:
   - component: {fileID: 874547058}
   - component: {fileID: 874547057}
   - component: {fileID: 874547059}
-  - component: {fileID: 874547060}
-  - component: {fileID: 874547061}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -423,7 +421,7 @@ Transform:
   m_GameObject: {fileID: 874547054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1884863751}
@@ -550,31 +548,6 @@ PolygonCollider2D:
       - {x: 0.31273496, y: -0.062344383}
       - {x: 0.31273496, y: 0.031143779}
       - {x: 0.09377718, y: 0.18736573}
---- !u!114 &874547060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874547054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a06a88276db3284fb4312ae30927c57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &874547061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874547054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 4316839718434926507, guid: 61f34fc4c1ae8dd4aa4134815cf57e4f, type: 3}
 --- !u!1 &1331372372
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +794,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1884863751}
   - component: {fileID: 1884863752}
+  - component: {fileID: 1884863753}
   m_Layer: 0
   m_Name: pistola
   m_TagString: Untagged
@@ -895,6 +869,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1884863753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884863750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 4316839718434926507, guid: 61f34fc4c1ae8dd4aa4134815cf57e4f, type: 3}
+  _bulletspeed: 8
 --- !u!1 &1909591345
 GameObject:
   m_ObjectHideFlags: 0
@@ -997,7 +985,7 @@ Transform:
   m_GameObject: {fileID: 1909591345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1612500230}
