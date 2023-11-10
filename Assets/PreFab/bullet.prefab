@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4316839718434926505}
   - component: {fileID: 4316839718434926506}
   m_Layer: 0
-  m_Name: balinha
+  m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0, g: 0.37328386, b: 1, a: 1}
   m_FlipX: 0
@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 16
   penetration: 0.32
+  direction: {x: 0, y: 0, z: 0}
