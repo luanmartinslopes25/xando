@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -12,6 +14,10 @@ public class Gun : MonoBehaviour
     private float _bulletCooldown = 0.8f;
 
     private float _lastFireTime;
+
+    private int spreadsus;
+    public int spread;
+    
 
     // Update is called once per frame
     void Update()
@@ -27,6 +33,9 @@ public class Gun : MonoBehaviour
                 _lastFireTime = Time.time;
             }
         }
+
+        spreadsus = UnityEngine.Random.Range(-spread, spread);
+        Debug.Log(spreadsus);
     }
 
     private void Fire()

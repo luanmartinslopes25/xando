@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -10,6 +9,8 @@ public class Bullet : MonoBehaviour
     public float maxTime = 8;
 
     Rigidbody2D rb;
+
+    private Vector3 ballform = new Vector3(0.08f, 0.04f, 1);
 
     // Start is called before the first frame update
     void Start()
@@ -30,11 +31,18 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Penetration());
+            transform.localScale = ballform;
         }
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
             StartCoroutine(Penetration2());
+            transform.localScale = ballform;
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -54,7 +62,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator Penetration2()
     {
-        yield return new WaitForSeconds(2.4f);
+        yield return new WaitForSeconds(1.6f);
         Destroy(gameObject);
     }
 
