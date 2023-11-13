@@ -7,16 +7,16 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _bulletPrefab;
+    private GameObject bulletPrefab;
     [SerializeField]
-    private float _bulletSpeed = 2.0f;
+    private float bulletSpeed = 2.0f;
     [SerializeField]
-    private float _bulletCooldown = 0.8f;
+    private float bulletCooldown = 0.8f;
 
-    private float _lastFireTime;
+    private float lastFireTime;
 
-    private int spreadsus;
-    public int spread;
+    private float spread;
+    public float spreadAngle;
     
 
     // Update is called once per frame
@@ -24,24 +24,27 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.B))
         {
-            float timeSinceLastFire = Time.time - _lastFireTime;
+            float timeSinceLastFire = Time.time - lastFireTime;
 
-            if (timeSinceLastFire >+ _bulletCooldown)
+            if (timeSinceLastFire >+ bulletCooldown)
             {
                 Fire();
 
-                _lastFireTime = Time.time;
+                lastFireTime = Time.time;
             }
         }
 
-        spreadsus = UnityEngine.Random.Range(-spread, spread);
-        Debug.Log(spreadsus);
+        spread = UnityEngine.Random.Range(-spreadAngle, spreadAngle);
+        Debug.Log(spread);
+
+        Debug.Log(transform.rotation.ToString());
     }
 
     private void Fire()
     {
-        GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
-        Rigidbody2D rigidbody2D = bullet.GetComponent<Rigidbody2D>();
-        rigidbody2D.velocity = _bulletSpeed * transform.up;
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        Transform bulletTransform = bullet.GetComponent<Transform>();
+        rb.velocity = bulletSpeed * transform.up;
     }
 }
