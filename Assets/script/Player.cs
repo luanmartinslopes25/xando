@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         // Spin
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.N))
         {
             rb.rotation += spinSpeed * Time.deltaTime;
         }

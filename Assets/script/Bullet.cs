@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
     private Vector3 ballform = new Vector3(0.08f, 0.04f, 1);
 
     [SerializeField]
-    private GameObject test;
+    private GameObject waterdrop;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +20,6 @@ public class Bullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         StartCoroutine(TimeDespawn());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -52,6 +46,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Map"))
         {
+            Splash();
             Destroy(gameObject);
         }
     }
@@ -59,7 +54,7 @@ public class Bullet : MonoBehaviour
     IEnumerator Penetration()
     {
         yield return new WaitForSeconds(penetration);
-        GameObject bullet = Instantiate(test, transform.position, transform.rotation); // isso é um teste insano do waterdrop
+        Splash();
         Destroy(gameObject);
     }
 
@@ -73,5 +68,11 @@ public class Bullet : MonoBehaviour
     {
         yield return new WaitForSeconds(maxTime);
         Destroy(gameObject);
+    }
+
+    private void Splash()
+    {
+        GameObject bullet1 = Instantiate(waterdrop, transform.position, transform.rotation); // isso é um teste insano do waterdrop
+        GameObject bullet2 = Instantiate(waterdrop, transform.position, transform.rotation); // isso é um teste insano do waterdrop
     }
 }
