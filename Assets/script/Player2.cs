@@ -23,11 +23,11 @@ public class Player2 : MonoBehaviour
       // Spin
         if (Input.GetKey(KeyCode.Keypad2))
         {
-            rb.rotation += spinSpeed * Time.deltaTime;
+            rb.rotation += 1;
         }
         else if (Input.GetKey(KeyCode.Keypad3))
         {
-            rb.rotation -= spinSpeed * Time.deltaTime;
+            rb.rotation -= 1;
         }
 
       // Moviment
@@ -35,14 +35,14 @@ public class Player2 : MonoBehaviour
         {
             if (moveVertical <= 1)
             {
-                moveVertical += 0.16f;
+                moveVertical += 1;
             }
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
             if (moveVertical >= -1)
             {
-                moveVertical -= 0.16f;
+                moveVertical -= 1;
             }
         }
         else
@@ -54,14 +54,14 @@ public class Player2 : MonoBehaviour
         {
             if (moveHorizontal >= -1)
             {
-                moveHorizontal -= 0.16f;
+                moveHorizontal -= 1;
             }
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             if (moveHorizontal <= 1)
             {
-                moveHorizontal += 0.16f;
+                moveHorizontal += 1;
             }
         }
         else
@@ -74,7 +74,5 @@ public class Player2 : MonoBehaviour
         movement = movement.normalized;
         // Move o jogador usando o Rigidbody2D
         rb.velocity = movement * moveSpeed;
-
-        // Fire
     }
 }

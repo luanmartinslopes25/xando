@@ -539,7 +539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &849010580
 Transform:
   m_ObjectHideFlags: 0
@@ -567,11 +567,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4316839718434926507, guid: f40f014963ccf1c40846147606a2ae8d, type: 3}
-  bulletSpeed: 10
-  bulletCooldown: 0.4
+  bulletPrefab: {fileID: 4316839718434926507, guid: 04c49c243471b674c8a37ab5ba5d95b0, type: 3}
+  bulletSpeed: 12
+  bulletCooldown: 0.1
   bulletAmount: 1
-  spread: 0
+  spread: 0.2
 --- !u!212 &849010582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -676,6 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.2
+  aceleration: 0.04
   spinSpeed: 168
 --- !u!50 &874547057
 Rigidbody2D:
@@ -952,7 +953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1640147052
 Transform:
   m_ObjectHideFlags: 0
@@ -980,7 +981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2783670578820088437, guid: 3af2e1f06268c20458ed523cb78dc7d7, type: 3}
+  bulletPrefab: {fileID: 4316839718434926507, guid: 61f34fc4c1ae8dd4aa4134815cf57e4f, type: 3}
   bulletSpeed: 6
   bulletCooldown: 1.6
   bulletAmount: 4
@@ -1083,13 +1084,13 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0.09
+  m_EdgeRadius: 0.21
   m_Points:
-  - {x: 0.58988386, y: 0.591939}
-  - {x: -0.5823966, y: 0.5865498}
-  - {x: -0.58362794, y: -0.58278584}
-  - {x: 0.5909397, y: -0.5849211}
-  - {x: 0.59060705, y: 0.59282917}
+  - {x: 0.61475426, y: 0.61370057}
+  - {x: -0.61611253, y: 0.6162991}
+  - {x: -0.6157522, y: -0.6149102}
+  - {x: 0.61166507, y: -0.6170454}
+  - {x: 0.6134049, y: 0.61148196}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1277,7 +1278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4316839718434926507, guid: f40f014963ccf1c40846147606a2ae8d, type: 3}
   bulletSpeed: 10
-  bulletCooldown: 4
+  bulletCooldown: 0.4
   bulletAmount: 1
   spread: 0
 --- !u!1 &1909591345
@@ -1435,4 +1436,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.2
+  aceleration: 0.04
   spinSpeed: 168

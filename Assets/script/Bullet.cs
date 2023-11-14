@@ -11,6 +11,9 @@ public class Bullet : MonoBehaviour
 
     private Vector3 ballform = new Vector3(0.08f, 0.04f, 1);
 
+    [SerializeField]
+    private GameObject test;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,12 +59,14 @@ public class Bullet : MonoBehaviour
     IEnumerator Penetration()
     {
         yield return new WaitForSeconds(penetration);
+        GameObject bullet = Instantiate(test, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
     IEnumerator Penetration2()
     {
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(penetration * 2);
+        GameObject bullet = Instantiate(test, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 

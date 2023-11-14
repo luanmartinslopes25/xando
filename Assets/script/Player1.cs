@@ -35,14 +35,14 @@ public class Player1 : MonoBehaviour
         {
             if(moveVertical <= 1)
             {
-                moveVertical += 0.16f;
+                moveVertical += 1;
             }
         }
         else if (Input.GetKey(KeyCode.S))
         {
             if (moveVertical >= -1)
             {
-                moveVertical -= 0.16f;
+                moveVertical -= 1;
             }
         }
         else
@@ -54,14 +54,14 @@ public class Player1 : MonoBehaviour
         {
             if (moveHorizontal >= -1)
             {
-                moveHorizontal -= 0.16f;
+                moveHorizontal -= 1;
             }
         }
         else if (Input.GetKey(KeyCode.D))
         {
             if (moveHorizontal <= 1)
             {
-                moveHorizontal += 0.16f;
+                moveHorizontal += 1;
             }
         }
         else
@@ -74,7 +74,5 @@ public class Player1 : MonoBehaviour
         movement = movement.normalized;
         // Move o jogador usando o Rigidbody2D
         rb.velocity = movement * moveSpeed;
-
-        // Fire
     }
 }
