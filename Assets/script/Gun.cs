@@ -12,11 +12,12 @@ public class Gun : MonoBehaviour
     private float bulletSpeed = 2.0f;
     [SerializeField]
     private float bulletCooldown = 0.8f;
+    [SerializeField]
+    private int bulletAmount = 1;
 
     private float lastFireTime;
 
-    private float spread;
-    public float spreadAngle;
+    public float spread;
     
 
     // Update is called once per frame
@@ -33,18 +34,24 @@ public class Gun : MonoBehaviour
                 lastFireTime = Time.time;
             }
         }
-
-        spread = UnityEngine.Random.Range(-spreadAngle, spreadAngle);
-        Debug.Log(spread);
-
-        Debug.Log(transform.rotation.ToString());
     }
 
     private void Fire()
     {
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        Transform bulletTransform = bullet.GetComponent<Transform>();
-        rb.velocity = bulletSpeed * transform.up;
+        for (int i = 0; i < bulletAmount; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Vector2 dir = transform.rotation * Vector2.up;
+            Vector2 pdir = Vector2.Perpendicular(dir) * UnityEngine.Random.Range(-spread, spread);
+            rb.velocity = (dir + pdir) * bulletSpeed;
+
+            /*
+            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            Transform bulletTransform = bullet.GetComponent<Transform>();
+            rb.velocity = bulletSpeed * transform.up;
+            */
+        }
     }
 }
