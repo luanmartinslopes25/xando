@@ -59,14 +59,13 @@ public class Bullet : MonoBehaviour
     IEnumerator Penetration()
     {
         yield return new WaitForSeconds(penetration);
-        GameObject bullet = Instantiate(test, transform.position, transform.rotation);
+        GameObject bullet = Instantiate(test, transform.position, transform.rotation); // isso é um teste insano do waterdrop
         Destroy(gameObject);
     }
 
     IEnumerator Penetration2()
     {
         yield return new WaitForSeconds(penetration * 2);
-        GameObject bullet = Instantiate(test, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
