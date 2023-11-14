@@ -676,7 +676,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.2
-  aceleration: 0.04
   spinSpeed: 168
 --- !u!50 &874547057
 Rigidbody2D:
@@ -1436,5 +1435,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 3.2
-  aceleration: 0.04
   spinSpeed: 168
