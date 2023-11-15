@@ -46,7 +46,6 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Map"))
         {
-            Splash();
             Destroy(gameObject);
         }
     }
@@ -72,7 +71,11 @@ public class Bullet : MonoBehaviour
 
     private void Splash()
     {
-        GameObject bullet1 = Instantiate(waterdrop, transform.position, transform.rotation); // isso é um teste insano do waterdrop
-        GameObject bullet2 = Instantiate(waterdrop, transform.position, transform.rotation); // isso é um teste insano do waterdrop
+        GameObject drop1 = Instantiate(waterdrop, transform.position, transform.rotation);
+        GameObject drop2 = Instantiate(waterdrop, transform.position, transform.rotation);
+        Rigidbody2D rb1 = drop1.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb2 = drop2.GetComponent<Rigidbody2D>();
+        rb1.velocity = 8 * transform.up;
+        rb2.velocity = 8 * transform.up;
     }
 }

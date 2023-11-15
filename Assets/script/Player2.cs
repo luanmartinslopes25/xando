@@ -23,11 +23,11 @@ public class Player2 : MonoBehaviour
       // Spin
         if (Input.GetKey(KeyCode.Keypad2))
         {
-            rb.rotation += 1;
+            rb.rotation += spinSpeed * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.Keypad3))
         {
-            rb.rotation -= 1;
+            rb.rotation -= spinSpeed * Time.deltaTime;
         }
 
       // Moviment

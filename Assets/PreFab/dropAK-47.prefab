@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4316839718434926502}
+  - component: {fileID: 4021556696828544670}
   - component: {fileID: 4316839718434926503}
   - component: {fileID: 4316839718434926504}
   - component: {fileID: 4316839718434926505}
   m_Layer: 0
-  m_Name: waterdropAK-47
+  m_Name: dropAK-47
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,6 +35,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4021556696828544670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316839718434926507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5559f06dbcf870b4b9d756701909c8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &4316839718434926503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,7 +128,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 8
-  m_LinearDrag: 0
+  m_LinearDrag: 0.8
   m_AngularDrag: 0.8
   m_GravityScale: 0
   m_Material: {fileID: 0}

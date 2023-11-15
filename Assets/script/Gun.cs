@@ -45,13 +45,6 @@ public class Gun : MonoBehaviour
             Vector2 dir = transform.rotation * Vector2.up;
             Vector2 pdir = Vector2.Perpendicular(dir) * UnityEngine.Random.Range(-spread, spread);
             rb.velocity = (dir + pdir) * bulletSpeed;
-
-            /*
-            GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-            Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            Transform bulletTransform = bullet.GetComponent<Transform>();
-            rb.velocity = bulletSpeed * transform.up;
-            */
         }
     }
 }
