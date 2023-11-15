@@ -675,8 +675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db28d79e83c87d47ace60d130c1ed6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.2
+  moveSpeed: 2
   spinSpeed: 168
+  spinResistence: 32
 --- !u!50 &874547057
 Rigidbody2D:
   serializedVersion: 4
@@ -689,8 +690,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 64
-  m_LinearDrag: 8
+  m_Mass: 80
+  m_LinearDrag: 0.8
   m_AngularDrag: 8
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -776,13 +777,17 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.09356189, y: 0.18716629}
+      - {x: -0.25005102, y: 0.12550338}
       - {x: -0.31232214, y: 0.031340845}
       - {x: -0.31225657, y: -0.062301956}
-      - {x: -0.09387231, y: -0.21870674}
-      - {x: 0.09336889, y: -0.21878916}
-      - {x: 0.31273496, y: -0.062344383}
-      - {x: 0.31273496, y: 0.031143779}
-      - {x: 0.09377718, y: 0.18736573}
+      - {x: -0.2501669, y: -0.15527906}
+      - {x: -0.09378219, y: -0.21807398}
+      - {x: 0.09378219, y: -0.218074}
+      - {x: 0.2501669, y: -0.1552791}
+      - {x: 0.3123221, y: -0.06230196}
+      - {x: 0.3123221, y: 0.03134084}
+      - {x: 0.250051, y: 0.1255034}
+      - {x: 0.09356189, y: 0.1871663}
 --- !u!1 &1331372372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,8 +1317,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 64
-  m_LinearDrag: 8
+  m_Mass: 80
+  m_LinearDrag: 0.8
   m_AngularDrag: 8
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -1415,13 +1420,17 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.09356189, y: 0.18716629}
+      - {x: -0.25005102, y: 0.12550338}
       - {x: -0.31232214, y: 0.031340845}
       - {x: -0.31225657, y: -0.062301956}
-      - {x: -0.09387231, y: -0.21870674}
-      - {x: 0.09336889, y: -0.21878916}
-      - {x: 0.31273496, y: -0.062344383}
-      - {x: 0.31273496, y: 0.031143779}
-      - {x: 0.09377718, y: 0.18736573}
+      - {x: -0.2501669, y: -0.15527906}
+      - {x: -0.09378219, y: -0.21807398}
+      - {x: 0.09378219, y: -0.218074}
+      - {x: 0.2501669, y: -0.1552791}
+      - {x: 0.3123221, y: -0.06230196}
+      - {x: 0.3123221, y: 0.03134084}
+      - {x: 0.250051, y: 0.1255034}
+      - {x: 0.09356189, y: 0.1871663}
 --- !u!114 &1909591352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,5 +1443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03fe90ffd09cbf442b6ed26bc63dd7d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3.2
+  moveSpeed: 2
   spinSpeed: 168
+  spinResistence: 32

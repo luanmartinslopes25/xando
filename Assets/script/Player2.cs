@@ -9,12 +9,14 @@ public class Player2 : MonoBehaviour
     private float moveVertical;
     private float moveHorizontal;
     public float moveSpeed = 2.0f;
-    public float spinSpeed = 2.0f;
+    public float spinSpeed = 168.0f;
+    public float spinResistence = 32.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.inertia = spinResistence;
     }
 
     // Update is called once per frame

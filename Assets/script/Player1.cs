@@ -9,23 +9,25 @@ public class Player1 : MonoBehaviour
     private float moveVertical;
     private float moveHorizontal;
     public float moveSpeed = 2.0f;
-    public float spinSpeed = 2.0f;
+    public float spinSpeed = 168.0f;
+    public float spinResistence = 32.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.inertia = spinResistence;
     }
 
     // Update is called once per frame
     void Update()
     {
       // Spin
-        if (Input.GetKey(KeyCode.N))
+        if (Input.GetKey(KeyCode.V))
         {
             rb.rotation += spinSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.M))
+        else if (Input.GetKey(KeyCode.B))
         {
             rb.rotation -= spinSpeed * Time.deltaTime;
         }

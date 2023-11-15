@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penetration: 0.32
   maxTime: 4
+  waterdrop: {fileID: 0}
 --- !u!50 &4316839718434926505
 Rigidbody2D:
   serializedVersion: 4
@@ -62,7 +63,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 198
+  m_Mass: 168
   m_LinearDrag: 0
   m_AngularDrag: 0.8
   m_GravityScale: 0

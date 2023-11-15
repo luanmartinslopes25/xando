@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penetration: 0.32
   maxTime: 8
+  waterdrop: {fileID: 0}
 --- !u!96 &7716835637694792816
 TrailRenderer:
   serializedVersion: 2
