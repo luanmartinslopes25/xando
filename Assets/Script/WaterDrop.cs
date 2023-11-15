@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WaterDrop : MonoBehaviour
 {
-    private Vector3 subtractSize = new Vector3(0.032f, 0.032f, 0);
+    private Vector3 subtractSize = new Vector3(0.064f, 0.064f, 0);
 
     // Update is called once per frame
     void Update()
