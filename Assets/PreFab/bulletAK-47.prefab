@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penetration: 0.08
   maxTime: 2
+  particles: 2
   waterdrop: {fileID: 4316839718434926507, guid: 9a300ad345ac04949aa42a465f3ec118, type: 3}
 --- !u!96 &7716835637694792816
 TrailRenderer:

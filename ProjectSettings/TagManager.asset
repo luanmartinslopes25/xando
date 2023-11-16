@@ -7,6 +7,7 @@ TagManager:
   - Map
   - Bullet
   - Wall
+  - Drop
   layers:
   - Default
   - TransparentFX

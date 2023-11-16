@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float penetration = 0.2f;
     public float maxTime = 8;
+    public int particles = 1;
 
     Rigidbody2D rb;
 
@@ -18,6 +19,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.inertia = 0;
 
         StartCoroutine(TimeDespawn());
     }
@@ -26,19 +28,20 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            StartCoroutine(Penetration());
+            Penetration();
             transform.localScale = ballform;
         }
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            StartCoroutine(Penetration2());
+            Splash(1.6f);
             transform.localScale = ballform;
+            Destroy(gameObject);
         }
 
         if (collision.gameObject.CompareTag("Wall"))
         {
-            Splash();
+            Splash(2.4f);
             Destroy(gameObject);
         }
     }
@@ -51,32 +54,28 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    IEnumerator Penetration()
-    {
-        yield return new WaitForSeconds(penetration);
-        Splash();
-        Destroy(gameObject);
-    }
-
-    IEnumerator Penetration2()
-    {
-        yield return new WaitForSeconds(penetration * 2);
-        Destroy(gameObject);
-    }
-
     IEnumerator TimeDespawn()
     {
         yield return new WaitForSeconds(maxTime);
         Destroy(gameObject);
     }
 
-    private void Splash()
+    IEnumerator Penetration()
     {
-        GameObject drop1 = Instantiate(waterdrop, transform.position, transform.rotation);
-        GameObject drop2 = Instantiate(waterdrop, transform.position, transform.rotation);
-        Rigidbody2D rb1 = drop1.GetComponent<Rigidbody2D>();
-        Rigidbody2D rb2 = drop2.GetComponent<Rigidbody2D>();
-        rb1.velocity = 8 * transform.up;
-        rb2.velocity = 8 * transform.up;
+        yield return new WaitForSeconds(0.02f);
+        Splash(2.4f);
+        Destroy(gameObject);
+    }
+
+    private void Splash(float particleSpeed)
+    {
+        for (int i = 0; i < particles; i++)
+        {
+            GameObject drop1 = Instantiate(waterdrop, transform.position, transform.rotation);
+            Rigidbody2D rb1 = drop1.GetComponent<Rigidbody2D>();
+            Vector2 dir = transform.rotation * Vector2.up;
+            Vector2 pdir = Vector2.Perpendicular(dir) * UnityEngine.Random.Range(-0.32f, 0.32f);
+            rb1.velocity = (dir + pdir) * particleSpeed;
+        }
     }
 }

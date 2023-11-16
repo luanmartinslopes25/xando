@@ -50,7 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   penetration: 0.32
   maxTime: 4
-  waterdrop: {fileID: 0}
+  particles: 1
+  waterdrop: {fileID: 4316839718434926507, guid: 15bb245d428f77f46984444cae7a3168, type: 3}
 --- !u!50 &4316839718434926505
 Rigidbody2D:
   serializedVersion: 4

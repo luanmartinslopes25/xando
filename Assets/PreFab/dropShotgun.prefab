@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4316839718434926504}
   - component: {fileID: 4316839718434926505}
   m_Layer: 0
-  m_Name: dropAK-47 2
-  m_TagString: Bullet
+  m_Name: dropShotgun
+  m_TagString: Drop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +131,7 @@ Rigidbody2D:
   m_LinearDrag: 1.6
   m_AngularDrag: 1.6
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0bd199dfe0b3e6846b6ccaaab5b4b797, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
