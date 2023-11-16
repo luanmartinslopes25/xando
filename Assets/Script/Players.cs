@@ -35,6 +35,7 @@ public class Players : MonoBehaviour
             rb.rotation -= spinSpeed * Time.deltaTime;
         }
 
+        /*
       // Moviment
         if (Input.GetKey(Up)) 
         {
@@ -73,6 +74,49 @@ public class Players : MonoBehaviour
         {
             moveHorizontal = 0;
         }
+        // Calcula o vetor de movimento
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+        // Normaliza o vetor de movimento para que o jogador nao se mova mais rapido na diagonal
+        movement = movement.normalized;
+        // Move o jogador usando o Rigidbody2D
+        rb.AddForce(movement * moveSpeed);
+        */
+
+
+        moveHorizontal /= 1.24f;
+        moveVertical /= 1.24f;
+
+        if (Input.GetKey(Up))
+        {
+            if (moveVertical <= 1)
+            {
+                moveVertical += 1 * Time.deltaTime;
+            }
+        }
+        else if (Input.GetKey(Down))
+        {
+            if (moveVertical >= -1)
+            {
+                moveVertical -= 1 * Time.deltaTime;
+            }
+        }
+
+        if (Input.GetKey(Left))
+        {
+            if (moveHorizontal >= -1)
+            {
+                moveHorizontal -= 1 * Time.deltaTime;
+            }
+        }
+        else if (Input.GetKey(Rigth))
+        {
+            if (moveHorizontal <= 1)
+            {
+                moveHorizontal += 1 * Time.deltaTime;
+            }
+        }
+
+
         // Calcula o vetor de movimento
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         // Normaliza o vetor de movimento para que o jogador nao se mova mais rapido na diagonal
