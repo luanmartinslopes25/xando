@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1 : MonoBehaviour
+public class Players : MonoBehaviour
 {
     private Rigidbody2D rb;
 
@@ -11,6 +11,9 @@ public class Player1 : MonoBehaviour
     public float moveSpeed = 2.0f;
     public float spinSpeed = 168.0f;
     public float spinResistence = 32.0f;
+
+
+    public KeyCode Up, Down, Left, Rigth, SpinL, SpinR;
 
     // Start is called before the first frame update
     void Start()
@@ -23,24 +26,24 @@ public class Player1 : MonoBehaviour
     void Update()
     {
       // Spin
-        if (Input.GetKey(KeyCode.V))
+        if (Input.GetKey(SpinL))
         {
             rb.rotation += spinSpeed * Time.deltaTime;
         }
-        else if (Input.GetKey(KeyCode.B))
+        else if (Input.GetKey(SpinR))
         {
             rb.rotation -= spinSpeed * Time.deltaTime;
         }
 
       // Moviment
-        if (Input.GetKey(KeyCode.W)) 
+        if (Input.GetKey(Up)) 
         {
             if(moveVertical <= 1)
             {
                 moveVertical += 1;
             }
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(Down))
         {
             if (moveVertical >= -1)
             {
@@ -52,14 +55,14 @@ public class Player1 : MonoBehaviour
             moveVertical = 0;
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(Left))
         {
             if (moveHorizontal >= -1)
             {
                 moveHorizontal -= 1;
             }
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(Rigth))
         {
             if (moveHorizontal <= 1)
             {

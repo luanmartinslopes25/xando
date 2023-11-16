@@ -173,6 +173,7 @@ MonoBehaviour:
   bulletCooldown: 0.4
   bulletAmount: 1
   spread: 0
+  buttonShoot: 99
 --- !u!212 &84965885
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -572,6 +573,7 @@ MonoBehaviour:
   bulletCooldown: 0.1
   bulletAmount: 1
   spread: 0.2
+  buttonShoot: 99
 --- !u!212 &849010582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -678,6 +680,12 @@ MonoBehaviour:
   moveSpeed: 2
   spinSpeed: 168
   spinResistence: 32
+  Up: 119
+  Down: 115
+  Left: 97
+  Rigth: 100
+  SpinL: 118
+  SpinR: 98
 --- !u!50 &874547057
 Rigidbody2D:
   serializedVersion: 4
@@ -865,9 +873,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1612500230}
+  - component: {fileID: 1612500232}
   - component: {fileID: 1612500231}
   m_Layer: 0
-  m_Name: pistola
+  m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -881,7 +890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612500229}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3157, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 0.39999998, y: 0.39999998, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -940,6 +949,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1612500232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612500229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4316839718434926507, guid: f40f014963ccf1c40846147606a2ae8d, type: 3}
+  bulletSpeed: 10
+  bulletCooldown: 0.4
+  bulletAmount: 1
+  spread: 0
+  buttonShoot: 257
 --- !u!1 &1640147051
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1017,7 @@ MonoBehaviour:
   bulletCooldown: 1.6
   bulletAmount: 4
   spread: 0.4
+  buttonShoot: 99
 --- !u!212 &1640147054
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1285,6 +1313,7 @@ MonoBehaviour:
   bulletCooldown: 0.4
   bulletAmount: 1
   spread: 0
+  buttonShoot: 99
 --- !u!1 &1909591345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,9 +1469,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1909591345}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03fe90ffd09cbf442b6ed26bc63dd7d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9db28d79e83c87d47ace60d130c1ed6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
   spinSpeed: 168
   spinResistence: 32
+  Up: 273
+  Down: 274
+  Left: 276
+  Rigth: 275
+  SpinL: 258
+  SpinR: 259

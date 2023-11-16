@@ -14,16 +14,17 @@ public class Gun : MonoBehaviour
     private float bulletCooldown = 0.8f;
     [SerializeField]
     private int bulletAmount = 1;
-
     private float lastFireTime;
-
     public float spread;
-    
+
+
+    public KeyCode buttonShoot;
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(buttonShoot))
         {
             float timeSinceLastFire = Time.time - lastFireTime;
 
