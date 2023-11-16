@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float penetration = 0.2f;
+    public float penetration = 0.02f;
     public float maxTime = 8;
     public int particles = 1;
 
@@ -28,8 +28,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Penetration();
+            StartCoroutine(Penetration());
             transform.localScale = ballform;
+            Debug.Log("basco");
         }
 
         if (collision.gameObject.CompareTag("Bullet"))
@@ -62,7 +63,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator Penetration()
     {
-        yield return new WaitForSeconds(0.02f);
+        yield return new WaitForSeconds(0.064f);
         Splash(2.4f);
         Destroy(gameObject);
     }
@@ -74,7 +75,7 @@ public class Bullet : MonoBehaviour
             GameObject drop1 = Instantiate(waterdrop, transform.position, transform.rotation);
             Rigidbody2D rb1 = drop1.GetComponent<Rigidbody2D>();
             Vector2 dir = transform.rotation * Vector2.up;
-            Vector2 pdir = Vector2.Perpendicular(dir) * UnityEngine.Random.Range(-0.32f, 0.32f);
+            Vector2 pdir = Vector2.Perpendicular(dir) * UnityEngine.Random.Range(-0.64f, 0.64f);
             rb1.velocity = (dir + pdir) * particleSpeed;
         }
     }

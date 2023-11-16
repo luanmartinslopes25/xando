@@ -40,14 +40,14 @@ public class Players : MonoBehaviour
         {
             if(moveVertical <= 1)
             {
-                moveVertical += 1;
+                moveVertical += 1 * Time.deltaTime;
             }
         }
         else if (Input.GetKey(Down))
         {
             if (moveVertical >= -1)
             {
-                moveVertical -= 1;
+                moveVertical -= 1 * Time.deltaTime;
             }
         }
         else
@@ -59,14 +59,14 @@ public class Players : MonoBehaviour
         {
             if (moveHorizontal >= -1)
             {
-                moveHorizontal -= 1;
+                moveHorizontal -= 1 * Time.deltaTime;
             }
         }
         else if (Input.GetKey(Rigth))
         {
             if (moveHorizontal <= 1)
             {
-                moveHorizontal += 1;
+                moveHorizontal += 1 * Time.deltaTime;
             }
         }
         else
@@ -78,6 +78,6 @@ public class Players : MonoBehaviour
         // Normaliza o vetor de movimento para que o jogador nao se mova mais rapido na diagonal
         movement = movement.normalized;
         // Move o jogador usando o Rigidbody2D
-        rb.velocity = movement * moveSpeed;
+        rb.AddForce(movement * moveSpeed);
     }
 }
