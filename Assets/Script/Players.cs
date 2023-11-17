@@ -34,9 +34,6 @@ public class Players : MonoBehaviour
         float moveHorizontal = Input.GetAxis(Horizontal);
         float moveVertical = Input.GetAxis(Vertical);
 
-        moveHorizontal /= 1.4f;
-        moveVertical /= 1.4f;
-
         // Calcula o vetor de movimento
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         // Normaliza o vetor de movimento para que o jogador nao se mova mais rapido na diagonal

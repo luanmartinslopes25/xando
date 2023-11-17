@@ -30,7 +30,6 @@ public class Bullet : MonoBehaviour
         {
             StartCoroutine(Penetration());
             transform.localScale = ballform;
-            Debug.Log("basco");
         }
 
         if (collision.gameObject.CompareTag("Bullet"))
