@@ -173,7 +173,7 @@ MonoBehaviour:
   bulletCooldown: 0.4
   bulletAmount: 1
   spread: 0
-  buttonShoot: 99
+  fire: Fire1
 --- !u!212 &84965885
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -573,7 +573,7 @@ MonoBehaviour:
   bulletCooldown: 0.24
   bulletAmount: 1
   spread: 0.32
-  buttonShoot: 99
+  fire: Fire1
 --- !u!212 &849010582
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -680,12 +680,9 @@ MonoBehaviour:
   moveSpeed: 64
   spinSpeed: 168
   spinResistence: 80
-  Up: 119
-  Down: 115
-  Left: 97
-  Rigth: 100
-  SpinL: 118
-  SpinR: 98
+  Horizontal: Horizontal1
+  Vertical: Vertical1
+  Spin: Spin1
 --- !u!50 &874547057
 Rigidbody2D:
   serializedVersion: 4
@@ -966,7 +963,7 @@ MonoBehaviour:
   bulletCooldown: 0.64
   bulletAmount: 1
   spread: 0
-  buttonShoot: 257
+  fire: Fire2
 --- !u!1 &1640147051
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,7 +1014,7 @@ MonoBehaviour:
   bulletCooldown: 1.6
   bulletAmount: 4
   spread: 0.4
-  buttonShoot: 99
+  fire: Fire1
 --- !u!212 &1640147054
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1313,7 +1310,7 @@ MonoBehaviour:
   bulletCooldown: 0.64
   bulletAmount: 1
   spread: 0
-  buttonShoot: 99
+  fire: Fire1
 --- !u!1 &1909591345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,9 +1472,6 @@ MonoBehaviour:
   moveSpeed: 64
   spinSpeed: 168
   spinResistence: 80
-  Up: 273
-  Down: 274
-  Left: 276
-  Rigth: 275
-  SpinL: 258
-  SpinR: 259
+  Horizontal: Horizontal2
+  Vertical: Vertical2
+  Spin: Spin2

@@ -5,15 +5,13 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     private Rigidbody2D rb;
-
-    private float moveVertical;
-    private float moveHorizontal;
     public float moveSpeed = 2.0f;
     public float spinSpeed = 168.0f;
     public float spinResistence = 32.0f;
 
-
-    public KeyCode Up, Down, Left, Rigth, SpinL, SpinR;
+    public string Horizontal;
+    public string Vertical;
+    public string Spin;
 
     // Start is called before the first frame update
     void Start()
@@ -26,96 +24,18 @@ public class Players : MonoBehaviour
     void Update()
     {
       // Spin
-        if (Input.GetKey(SpinL))
-        {
-            rb.rotation += spinSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(SpinR))
-        {
-            rb.rotation -= spinSpeed * Time.deltaTime;
-        }
 
-        /*
-      // Moviment
-        if (Input.GetKey(Up)) 
-        {
-            if(moveVertical <= 1)
-            {
-                moveVertical += 1 * Time.deltaTime;
-            }
-        }
-        else if (Input.GetKey(Down))
-        {
-            if (moveVertical >= -1)
-            {
-                moveVertical -= 1 * Time.deltaTime;
-            }
-        }
-        else
-        {
-            moveVertical = 0;
-        }
+        float moveSpin = Input.GetAxis(Spin);
 
-        if (Input.GetKey(Left))
-        {
-            if (moveHorizontal >= -1)
-            {
-                moveHorizontal -= 1 * Time.deltaTime;
-            }
-        }
-        else if (Input.GetKey(Rigth))
-        {
-            if (moveHorizontal <= 1)
-            {
-                moveHorizontal += 1 * Time.deltaTime;
-            }
-        }
-        else
-        {
-            moveHorizontal = 0;
-        }
-        // Calcula o vetor de movimento
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        // Normaliza o vetor de movimento para que o jogador nao se mova mais rapido na diagonal
-        movement = movement.normalized;
-        // Move o jogador usando o Rigidbody2D
-        rb.AddForce(movement * moveSpeed);
-        */
+        rb.rotation += moveSpin * spinSpeed * Time.deltaTime;
 
+      //Move
 
-        moveHorizontal /= 1.24f;
-        moveVertical /= 1.24f;
+        float moveHorizontal = Input.GetAxis(Horizontal);
+        float moveVertical = Input.GetAxis(Vertical);
 
-        if (Input.GetKey(Up))
-        {
-            if (moveVertical <= 1)
-            {
-                moveVertical += 1 * Time.deltaTime;
-            }
-        }
-        else if (Input.GetKey(Down))
-        {
-            if (moveVertical >= -1)
-            {
-                moveVertical -= 1 * Time.deltaTime;
-            }
-        }
-
-        if (Input.GetKey(Left))
-        {
-            if (moveHorizontal >= -1)
-            {
-                moveHorizontal -= 1 * Time.deltaTime;
-            }
-        }
-        else if (Input.GetKey(Rigth))
-        {
-            if (moveHorizontal <= 1)
-            {
-                moveHorizontal += 1 * Time.deltaTime;
-            }
-        }
-
+        moveHorizontal /= 1.4f;
+        moveVertical /= 1.4f;
 
         // Calcula o vetor de movimento
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);

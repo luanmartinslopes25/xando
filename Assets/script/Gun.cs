@@ -18,13 +18,13 @@ public class Gun : MonoBehaviour
     public float spread;
 
 
-    public KeyCode buttonShoot;
+    public string fire;
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(buttonShoot))
+        if (Input.GetButton(fire))
         {
             float timeSinceLastFire = Time.time - lastFireTime;
 
