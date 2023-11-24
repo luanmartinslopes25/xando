@@ -13,24 +13,26 @@ public class Players : MonoBehaviour
     public string Vertical;
     public string Spin;
 
+    public bool isGrounded = true;
+    public Vector3 playerSize;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.inertia = spinResistence;
+        playerSize = transform.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
       // Spin
-
         float moveSpin = Input.GetAxis(Spin);
 
         rb.rotation += moveSpin * spinSpeed * Time.deltaTime;
 
-      //Move
-
+      // Move
         float moveHorizontal = Input.GetAxis(Horizontal);
         float moveVertical = Input.GetAxis(Vertical);
 
@@ -40,5 +42,17 @@ public class Players : MonoBehaviour
         movement = movement.normalized;
         // Move o jogador usando o Rigidbody2D
         rb.AddForce(movement * moveSpeed);
+
+
+      // Jump
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Map"))
+        {
+
+        }
     }
 }
