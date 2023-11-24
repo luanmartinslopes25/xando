@@ -82,6 +82,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator naoseidarnome()
     {
+        yield return new WaitForSeconds(0.064f);
 
     }
 }
