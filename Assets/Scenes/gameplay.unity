@@ -956,6 +956,8 @@ MonoBehaviour:
   Horizontal: Horizontal1
   Vertical: Vertical1
   Spin: Spin1
+  isGrounded: 1
+  playerSize: {x: 0, y: 0, z: 0}
 --- !u!50 &874547057
 Rigidbody2D:
   serializedVersion: 4
@@ -1863,6 +1865,8 @@ MonoBehaviour:
   Horizontal: Horizontal2
   Vertical: Vertical2
   Spin: Spin2
+  isGrounded: 1
+  playerSize: {x: 0, y: 0, z: 0}
 --- !u!1 &2114239601
 GameObject:
   m_ObjectHideFlags: 0

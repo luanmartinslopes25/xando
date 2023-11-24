@@ -32,16 +32,17 @@ public class Bullet : MonoBehaviour
             transform.localScale = ballform;
         }
 
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Splash(2.4f);
+            Destroy(gameObject);
+        }
+
+        StartCoroutine(naoseidarnome());
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Splash(1.6f);
             transform.localScale = ballform;
-            Destroy(gameObject);
-        }
-
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Splash(2.4f);
             Destroy(gameObject);
         }
     }
@@ -77,5 +78,10 @@ public class Bullet : MonoBehaviour
             Vector2 pdir = Vector2.Perpendicular(dir) * UnityEngine.Random.Range(-0.64f, 0.64f);
             rb1.velocity = (dir + pdir) * particleSpeed;
         }
+    }
+
+    IEnumerator naoseidarnome()
+    {
+
     }
 }
