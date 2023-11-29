@@ -27,11 +27,6 @@ public class Players : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      // Spin
-        float moveSpin = Input.GetAxis(Spin);
-
-        rb.rotation += moveSpin * spinSpeed * Time.deltaTime;
-
       // Move
         float moveHorizontal = Input.GetAxis(Horizontal);
         float moveVertical = Input.GetAxis(Vertical);
@@ -43,14 +38,21 @@ public class Players : MonoBehaviour
         // Move o jogador usando o Rigidbody2D
         rb.AddForce(movement * moveSpeed);
 
+      // Spin
+        if (movement != Vector2.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, spinSpeed * Time.deltaTime);
+        }
 
-      // Jump
-        
+
+        // Jump
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("m"))
+        if (collision.gameObject.CompareTag("Floor"))
         {
 
         }

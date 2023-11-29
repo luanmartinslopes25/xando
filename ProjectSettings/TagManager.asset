@@ -8,6 +8,8 @@ TagManager:
   - Bullet
   - Wall
   - Drop
+  - Floor
+  - Water
   layers:
   - Default
   - TransparentFX
