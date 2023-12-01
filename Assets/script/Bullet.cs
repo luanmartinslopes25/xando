@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float penetration = 0.02f;
+    public int penetration = 1;
     public float maxTime = 8;
     public int particles = 1;
 
@@ -38,12 +38,13 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        StartCoroutine(naoseidarnome());
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Splash(1.6f);
+            /*Splash(1.6f);
             transform.localScale = ballform;
             Destroy(gameObject);
+            */
+            PenetrationBullets();
         }
     }
 
@@ -80,9 +81,12 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    IEnumerator naoseidarnome()
+    private void PenetrationBullets()
     {
-        yield return new WaitForSeconds(0.064f);
-
+        if (penetration > 1)
+        {
+            Destroy(gameObject);
+        }
+        penetration -= 1;
     }
 }
