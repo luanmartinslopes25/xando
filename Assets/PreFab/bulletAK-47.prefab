@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 706cef84bf8ff014fbd14b592db9a2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  penetration: 10
+  penetration: 1
   maxTime: 2
   particles: 2
   waterdrop: {fileID: 4316839718434926507, guid: 9a300ad345ac04949aa42a465f3ec118, type: 3}

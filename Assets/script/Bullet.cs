@@ -40,10 +40,6 @@ public class Bullet : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            /*Splash(1.6f);
-            transform.localScale = ballform;
-            Destroy(gameObject);
-            */
             PenetrationBullets();
         }
     }
@@ -83,10 +79,11 @@ public class Bullet : MonoBehaviour
 
     private void PenetrationBullets()
     {
-        if (penetration > 1)
+        penetration -= 1;
+        if (penetration < 1)
         {
+            Splash(5.6f);
             Destroy(gameObject);
         }
-        penetration -= 1;
     }
 }
