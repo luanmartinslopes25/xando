@@ -41,7 +41,7 @@ public class Players : MonoBehaviour
         if (isGrounded)
         {
             rb.AddForce(movement * moveSpeed);
-            if (movement.magnitude > 0)
+            if (movement.magnitude > 0) // não é uma boa idéia ja que e importante que a velocidade depois de levar um tiro seja oque empurre e nesse caso só a movimentação importa
             {
                 jumpSpeed = movement * moveSpeed;
             }
@@ -90,27 +90,25 @@ public class Players : MonoBehaviour
             JumpUp();
             yield return new WaitForSeconds(0.08f);
         }
+
+        StartCoroutine(JumpDownCoroutine());
     }
 
     private void JumpUp()
     {
         transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
-        if (transform.localScale.y >= jumpHeight.y)
-        {
-            StartCoroutine(JumpDownCoroutine());
-        }
         Debug.Log("subiu");
     }
 
     private IEnumerator JumpDownCoroutine()
     {
-        isJumping = true;
-
-        while (transform.localScale.y > jumpHeight.y)
+        while (transform.localScale.y > playerSize.y)
         {
             JumpDown();
             yield return new WaitForSeconds(0.08f);
         }
+
+        isJumping = false; // Set isJumping to false after completing the jump down
     }
 
     private void JumpDown()
