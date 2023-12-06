@@ -5,20 +5,24 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float moveSpeed = 2.0f;
+    public float moveSpeed = 64;
     public float spinSpeed = 168.0f;
     public float spinResistence = 32.0f;
-    public Vector2 jumpSpeed;
+    private Vector2 jumpSpeed;
 
     public string Horizontal;
     public string Vertical;
     public string Spin;
 
-    public bool isGrounded = true;
     public bool haveGround = true;
     public bool isJumping = false;
     public Vector3 playerSize = new Vector3(1, 1, 1);
-    public Vector3 jumpHeight = new Vector3(2, 2, 2);
+    public Vector3 jumpHeight = new Vector3(1.5f, 1.5f, 1.5f);
+    public float jumpSpeedMulti = 16;
+    public float gravity = 0.05f;
+
+    public float acceleration = 48;
+    public float maxSpeed = 56;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +42,20 @@ public class Players : MonoBehaviour
 
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         movement = movement.normalized;
-        if (isGrounded)
+
+        // Calcula a diferença entre a velocidade desejada e a velocidade atual
+        float speedDiff = maxSpeed - rb.velocity.magnitude;
+
+        // Calcula a força necessária para atingir a velocidade desejada
+        float forceMagnitude = Mathf.Min(speedDiff, acceleration);
+
+        // Aplica a força
+        if (!isJumping)
         {
-            rb.AddForce(movement * moveSpeed);
-            if (movement.magnitude > 0) // não é uma boa idéia ja que e importante que a velocidade depois de levar um tiro seja oque empurre e nesse caso só a movimentação importa
+            rb.AddForce(movement * forceMagnitude);
+            if (rb.velocity.x != 0)
             {
-                jumpSpeed = movement * moveSpeed;
+                jumpSpeed = rb.velocity * jumpSpeedMulti;
             }
         }
         else
@@ -88,7 +100,7 @@ public class Players : MonoBehaviour
         while (transform.localScale.y < jumpHeight.y)
         {
             JumpUp();
-            yield return new WaitForSeconds(0.08f);
+            yield return new WaitForSeconds(0.01f);
         }
 
         StartCoroutine(JumpDownCoroutine());
@@ -96,8 +108,7 @@ public class Players : MonoBehaviour
 
     private void JumpUp()
     {
-        transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
-        Debug.Log("subiu");
+        transform.localScale += new Vector3(gravity, gravity, gravity);
     }
 
     private IEnumerator JumpDownCoroutine()
@@ -105,15 +116,14 @@ public class Players : MonoBehaviour
         while (transform.localScale.y > playerSize.y)
         {
             JumpDown();
-            yield return new WaitForSeconds(0.08f);
+            yield return new WaitForSeconds(0.01f);
         }
 
-        isJumping = false; // Set isJumping to false after completing the jump down
+        isJumping = false;
     }
 
     private void JumpDown()
     {
-        transform.localScale += new Vector3(-0.1f, -0.1f, -0.1f);
-        Debug.Log("desceu");
+        transform.localScale -= new Vector3(gravity, gravity, gravity);
     }
 }

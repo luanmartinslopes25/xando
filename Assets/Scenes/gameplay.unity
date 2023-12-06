@@ -1078,17 +1078,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 64
-  spinSpeed: 168
+  spinSpeed: 240
   spinResistence: 80
-  jumpSpeed: {x: 0, y: 0}
   Horizontal: Horizontal1
   Vertical: Vertical1
   Spin: Spin1
-  isGrounded: 1
   haveGround: 1
   isJumping: 0
   playerSize: {x: 1, y: 1, z: 1}
   jumpHeight: {x: 2, y: 2, z: 2}
+  jumpSpeedMulti: 16
+  gravity: 0.05
 --- !u!50 &874547057
 Rigidbody2D:
   serializedVersion: 4
@@ -2117,17 +2117,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 64
-  spinSpeed: 168
+  spinSpeed: 240
   spinResistence: 80
-  jumpSpeed: {x: 0, y: 0}
   Horizontal: Horizontal2
   Vertical: Vertical2
   Spin: Spin2
-  isGrounded: 1
   haveGround: 1
   isJumping: 0
   playerSize: {x: 0, y: 0, z: 0}
   jumpHeight: {x: 2, y: 2, z: 2}
+  jumpSpeedMulti: 16
+  gravity: 0.05
 --- !u!1 &2000681130
 GameObject:
   m_ObjectHideFlags: 0
