@@ -17,7 +17,8 @@ public class Players : MonoBehaviour
     public bool isGrounded = true;
     public bool haveGround = true;
     public bool isJumping = false;
-    public Vector3 playerSize;
+    public Vector3 playerSize = new Vector3(1, 1, 1);
+    public Vector3 jumpHeight = new Vector3(2, 2, 2);
 
     // Start is called before the first frame update
     void Start()
@@ -75,16 +76,25 @@ public class Players : MonoBehaviour
             haveGround = false;
             if (!isJumping)
             {
-                StartCoroutine(JumpUp());
+                Jump();
+                Debug.Log("saiu");
             }
-            Debug.Log("saiu");
         }
            
+    }
+
+    private void Jump()
+    {
+        for (Vector3 scale = transform.localScale; scale.y < jumpHeight.y; scale += Vector3.one)
+        {
+            transform.localScale = scale;
+        }
     }
 
     IEnumerator JumpUp()
     {
         yield return new WaitForSeconds(0.16f);
+        transform.position += new Vector3(0.1f, 0.1f, 0.1f);
     }
 
     IEnumerator JumpDown()
