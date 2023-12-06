@@ -13,6 +13,6 @@ public class Master : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(1 / Time.deltaTime);
+
     }
 }
