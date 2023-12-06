@@ -1087,7 +1087,8 @@ MonoBehaviour:
   isGrounded: 1
   haveGround: 1
   isJumping: 0
-  playerSize: {x: 0, y: 0, z: 0}
+  playerSize: {x: 1, y: 1, z: 1}
+  jumpHeight: {x: 2, y: 2, z: 2}
 --- !u!50 &874547057
 Rigidbody2D:
   serializedVersion: 4
@@ -2126,6 +2127,7 @@ MonoBehaviour:
   haveGround: 1
   isJumping: 0
   playerSize: {x: 0, y: 0, z: 0}
+  jumpHeight: {x: 2, y: 2, z: 2}
 --- !u!1 &2000681130
 GameObject:
   m_ObjectHideFlags: 0

@@ -65,7 +65,6 @@ public class Players : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             haveGround = true;
-            Debug.Log("encostou em um móovel");
         }
     }
 
@@ -76,29 +75,47 @@ public class Players : MonoBehaviour
             haveGround = false;
             if (!isJumping)
             {
-                Jump();
-                Debug.Log("saiu");
+                StartCoroutine(JumpUpCoroutine());
             }
         }
            
     }
 
-    private void Jump()
+    private IEnumerator JumpUpCoroutine()
     {
-        for (Vector3 scale = transform.localScale; scale.y < jumpHeight.y; scale += Vector3.one)
+        isJumping = true;
+
+        while (transform.localScale.y < jumpHeight.y)
         {
-            transform.localScale = scale;
+            JumpUp();
+            yield return new WaitForSeconds(0.08f);
         }
     }
 
-    IEnumerator JumpUp()
+    private void JumpUp()
     {
-        yield return new WaitForSeconds(0.16f);
-        transform.position += new Vector3(0.1f, 0.1f, 0.1f);
+        transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+        if (transform.localScale.y >= jumpHeight.y)
+        {
+            StartCoroutine(JumpDownCoroutine());
+        }
+        Debug.Log("subiu");
     }
 
-    IEnumerator JumpDown()
+    private IEnumerator JumpDownCoroutine()
     {
-        yield return new WaitForSeconds(0.16f);
+        isJumping = true;
+
+        while (transform.localScale.y > jumpHeight.y)
+        {
+            JumpDown();
+            yield return new WaitForSeconds(0.08f);
+        }
+    }
+
+    private void JumpDown()
+    {
+        transform.localScale += new Vector3(-0.1f, -0.1f, -0.1f);
+        Debug.Log("desceu");
     }
 }
