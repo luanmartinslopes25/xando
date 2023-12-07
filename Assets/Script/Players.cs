@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Newtonsoft.Json.Bson;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class Players : MonoBehaviour
 
     public float acceleration = 48;
     public float maxSpeed = 56;
+
+    //public mainScript mainScript;
 
     // Start is called before the first frame update
     void Start()
@@ -121,10 +124,19 @@ public class Players : MonoBehaviour
         }
 
         isJumping = false;
+        if (!haveGround)
+        {
+            Die();
+        }
     }
 
     private void JumpDown()
     {
         transform.localScale -= new Vector3(gravity, gravity, gravity);
+    }
+
+    private void Die()
+    {
+        
     }
 }
