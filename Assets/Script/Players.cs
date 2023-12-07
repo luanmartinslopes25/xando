@@ -27,6 +27,11 @@ public class Players : MonoBehaviour
 
     public int score;
 
+    public int gun;
+    public GameObject gun1;
+    public GameObject gun2;
+    public GameObject gun3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -151,5 +156,26 @@ public class Players : MonoBehaviour
         transform.position = Vector3.zero;
         transform.rotation = Quaternion.identity;
         transform.localScale = playerSize;
+
+        gun = UnityEngine.Random.Range(1, 4);
+        if     (gun == 1)
+        {
+            gun1.gameObject.SetActive(true);
+            gun2.gameObject.SetActive(false);
+            gun3.gameObject.SetActive(false);
+        }
+        else if(gun == 2)
+        {
+            gun1.gameObject.SetActive(false);
+            gun2.gameObject.SetActive(true);
+            gun3.gameObject.SetActive(false);
+        }
+        else if(gun == 3)
+        {
+            gun1.gameObject.SetActive(false);
+            gun2.gameObject.SetActive(false);
+            gun3.gameObject.SetActive(true);
+        }
+
     }
 }
