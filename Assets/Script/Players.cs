@@ -6,8 +6,8 @@ public class Players : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float moveSpeed = 64;
-    public float spinSpeed = 168.0f;
-    public float spinResistence = 32.0f;
+    public float spinSpeed = 48;
+    public float spinResistence = 32;
     private Vector2 jumpSpeed;
 
     public string Horizontal;
@@ -43,16 +43,13 @@ public class Players : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, moveVertical);
         movement = movement.normalized;
 
-        // Calcula a diferença entre a velocidade desejada e a velocidade atual
-        float speedDiff = maxSpeed - rb.velocity.magnitude;
+        float currentSpeed = Vector2.Dot(rb.velocity, movement);
+        float speedDiff = maxSpeed - currentSpeed;
+        float requiredAcceleration = Mathf.Clamp(speedDiff / Time.deltaTime, 0, acceleration);
 
-        // Calcula a força necessária para atingir a velocidade desejada
-        float forceMagnitude = Mathf.Min(speedDiff, acceleration);
-
-        // Aplica a força
         if (!isJumping)
         {
-            rb.AddForce(movement * forceMagnitude);
+            rb.AddForce(movement * requiredAcceleration);
             if (rb.velocity.x != 0)
             {
                 jumpSpeed = rb.velocity * jumpSpeedMulti;
@@ -68,7 +65,11 @@ public class Players : MonoBehaviour
         if (movement != Vector2.zero)
         {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, spinSpeed * Time.deltaTime);
+            float angleDifference = toRotation.eulerAngles.z - rb.rotation;
+            angleDifference = Mathf.Repeat(angleDifference + 180f, 360f) - 180f;
+            float angularVelocity = angleDifference * spinSpeed * Time.deltaTime;
+
+            rb.AddTorque(angularVelocity * spinSpeed);
         }
     }
 
