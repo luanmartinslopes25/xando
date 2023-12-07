@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be806fec026e2e4888ef6c7cf920dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneSwitch: Tutorial
+  Texto: tutorial
 --- !u!114 &621260871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be806fec026e2e4888ef6c7cf920dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneSwitch: gameplay
+  Texto: gameplay
 --- !u!1 &1126478957
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be806fec026e2e4888ef6c7cf920dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneSwitch: Credits
+  Texto: credits
 --- !u!1 &1132305755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,4 +1304,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be806fec026e2e4888ef6c7cf920dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneSwitch: 
+  Texto: 

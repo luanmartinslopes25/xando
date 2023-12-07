@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
-    public string SceneSwitch;
-
+    public string Texto;
     public void OnClick()
     {
-        SceneManager.LoadScene(SceneSwitch);
+        SceneManager.LoadScene(Texto);
     }
     public void QuitGame()
     {
