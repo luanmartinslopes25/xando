@@ -5,10 +5,16 @@ using UnityEngine.UI;
 
 public class Main : MonoBehaviour
 {
+    public Players player1;
+    public Players player2;
+    public Text score1;
+    public Text score2;
 
-    public int countdownTime;
-    public Text countdownDisplay;
+    public int countdownTime = 3;
     public float timerSpeed = 0.4f;
+
+    private int currentCountdownTime;
+    public Text countdownDisplay;
 
     public bool ready;
     // Start is called before the first frame update
@@ -19,17 +25,25 @@ public class Main : MonoBehaviour
 
 
 
-    IEnumerator CountdownStart()
+    public IEnumerator CountdownStart()
     {
+        // é invertido porque o score aumenta quando morre
+        score1.text = player2.score.ToString();
+        score2.text = player1.score.ToString();
+
+        player1.Respawn();
+        player2.Respawn();
+
         ready = false;
-        countdownTime = 3;
-        countdownDisplay.text = countdownTime.ToString();
+
+        currentCountdownTime = countdownTime;
+        countdownDisplay.text = currentCountdownTime.ToString();
         countdownDisplay.gameObject.SetActive(true);
-        while (countdownTime > 0)
+        while (currentCountdownTime > 0)
         {
-            countdownDisplay.text = countdownTime.ToString();
+            countdownDisplay.text = currentCountdownTime.ToString();
             yield return new WaitForSeconds(timerSpeed);
-            countdownTime--;
+            currentCountdownTime--;
         }
 
         countdownDisplay.text = "GO!";

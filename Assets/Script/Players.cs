@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class Players : MonoBehaviour
 {
+    public Main mainScript;
+
     private Rigidbody2D rb;
-    public float moveSpeed = 64;
+
+    public string Spin;
     public float spinSpeed = 48;
     public float spinResistence = 32;
-    private Vector2 jumpSpeed;
 
     public string Horizontal;
     public string Vertical;
-    public string Spin;
+    public float moveSpeed = 64;
+    private Vector2 jumpSpeed;
 
     public bool haveGround = true;
     public bool isJumping = false;
@@ -22,10 +25,7 @@ public class Players : MonoBehaviour
     public float jumpSpeedMulti = 16;
     public float gravity = 0.05f;
 
-    public float acceleration = 48;
-    public float maxSpeed = 56;
-
-    //public mainScript mainScript;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
@@ -38,41 +38,40 @@ public class Players : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-      // Move
-        float moveHorizontal = Input.GetAxis(Horizontal);
-        float moveVertical = Input.GetAxis(Vertical);
-
-        Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-        movement = movement.normalized;
-
-        float currentSpeed = Vector2.Dot(rb.velocity, movement);
-        float speedDiff = maxSpeed - currentSpeed;
-        float requiredAcceleration = Mathf.Clamp(speedDiff / Time.deltaTime, 0, acceleration);
-
-        if (!isJumping)
+        if (mainScript.ready)
         {
-            rb.AddForce(movement * requiredAcceleration);
-            if (rb.velocity.x != 0)
+
+            // Move
+            float moveHorizontal = Input.GetAxis(Horizontal);
+            float moveVertical = Input.GetAxis(Vertical);
+
+            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+            movement = movement.normalized;
+
+            if (!isJumping)
             {
-                jumpSpeed = rb.velocity * jumpSpeedMulti;
+                rb.AddForce(movement * moveSpeed);
+                if (rb.velocity.x != 0)
+                {
+                    jumpSpeed = rb.velocity * jumpSpeedMulti;
+                }
             }
-        }
-        else
-        {
-            rb.AddForce(jumpSpeed);
-        }
+            else
+            {
+                rb.AddForce(jumpSpeed);
+            }
 
 
-        // Spin
-        if (movement != Vector2.zero)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
-            float angleDifference = toRotation.eulerAngles.z - rb.rotation;
-            angleDifference = Mathf.Repeat(angleDifference + 180f, 360f) - 180f;
-            float angularVelocity = angleDifference * spinSpeed * Time.deltaTime;
+            // Spin
+            if (movement != Vector2.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
+                float angleDifference = toRotation.eulerAngles.z - rb.rotation;
+                angleDifference = Mathf.Repeat(angleDifference + 180f, 360f) - 180f;
+                float angularVelocity = angleDifference * spinSpeed * Time.deltaTime;
 
-            rb.AddTorque(angularVelocity * spinSpeed);
+                rb.AddTorque(angularVelocity * spinSpeed);
+            }
         }
     }
 
@@ -126,7 +125,7 @@ public class Players : MonoBehaviour
         isJumping = false;
         if (!haveGround)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 
@@ -135,8 +134,21 @@ public class Players : MonoBehaviour
         transform.localScale -= new Vector3(gravity, gravity, gravity);
     }
 
-    private void Die()
+    private IEnumerator Die()
     {
-        
+        while (transform.localScale.y > 0)
+        {
+            transform.localScale -= new Vector3(gravity, gravity, gravity);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.localScale = Vector3.zero;
+        score++;
+        StartCoroutine(mainScript.CountdownStart());
+    }
+
+    public void Respawn()
+    {
+        transform.position = Vector3.zero;
+        transform.localScale = playerSize;
     }
 }
