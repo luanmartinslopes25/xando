@@ -149,6 +149,7 @@ public class Players : MonoBehaviour
     public void Respawn()
     {
         transform.position = Vector3.zero;
+        transform.rotation = Quaternion.identity;
         transform.localScale = playerSize;
     }
 }
