@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator Penetration()
     {
-        yield return new WaitForSeconds(0.16f);
+        yield return new WaitForSeconds(0.24f);
         Splash(2.4f);
         Destroy(gameObject);
     }

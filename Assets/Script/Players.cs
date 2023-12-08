@@ -16,8 +16,9 @@ public class Players : MonoBehaviour
     public string Horizontal;
     public string Vertical;
     public float moveSpeed = 64;
-    private Vector2 jumpSpeed;
+    private Vector2 movement;
 
+    private Vector2 jumpSpeed;
     public bool haveGround = true;
     public bool isJumping = false;
     public Vector3 playerSize = new Vector3(1, 1, 1);
@@ -50,7 +51,7 @@ public class Players : MonoBehaviour
             float moveHorizontal = Input.GetAxis(Horizontal);
             float moveVertical = Input.GetAxis(Vertical);
 
-            Vector2 movement = new Vector2(moveHorizontal, moveVertical);
+            movement = new Vector2(moveHorizontal, moveVertical);
             movement = movement.normalized;
 
             if (!isJumping)
@@ -108,6 +109,15 @@ public class Players : MonoBehaviour
     private IEnumerator JumpUpCoroutine()
     {
         isJumping = true;
+        Vector2 jumpBalanced = movement;
+        rb.velocity = rb.velocity + jumpBalanced*1.5f;
+        yield return new WaitForSeconds(0.01f);
+        rb.velocity = rb.velocity + jumpBalanced;
+        yield return new WaitForSeconds(0.01f);
+        rb.velocity = rb.velocity + jumpBalanced/1.5f;
+        yield return new WaitForSeconds(0.01f);
+        rb.velocity = rb.velocity + jumpBalanced/3;
+        yield return new WaitForSeconds(0.01f);
 
         while (transform.localScale.y < jumpHeight.y)
         {
