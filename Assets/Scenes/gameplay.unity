@@ -995,6 +995,13 @@ MonoBehaviour:
   timerSpeed: 0.4
   countdownDisplay: {fileID: 1500197559}
   ready: 0
+  spawn1: {fileID: 1402056661}
+  spawn2: {fileID: 1079521980}
+  spawn3: {fileID: 1252016752}
+  spawn4: {fileID: 445807480}
+  spawn5: {fileID: 191043372}
+  spawnSelector1: 0
+  spawnSelector2: 0
 --- !u!1 &757077864
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,7 +1804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1196657968
 Transform:
   m_ObjectHideFlags: 0

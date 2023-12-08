@@ -93,9 +93,13 @@ public class Players : MonoBehaviour
         if (collision.gameObject.CompareTag("Floor"))
         {
             haveGround = false;
-            if (!isJumping)
+            if (mainScript.ready)
             {
-                StartCoroutine(JumpUpCoroutine());
+                if (!isJumping)
+                {
+                    StartCoroutine(JumpUpCoroutine());
+                }
+
             }
         }
            
@@ -146,15 +150,22 @@ public class Players : MonoBehaviour
             transform.localScale -= new Vector3(gravity, gravity, gravity);
             yield return new WaitForEndOfFrame();
         }
-        transform.localScale = Vector3.zero;
-        score++;
-        StartCoroutine(mainScript.CountdownStart());
+        if (mainScript.ready)
+        {
+            mainScript.ready = false;
+            transform.localScale = Vector3.zero;
+            score++;
+            StartCoroutine(mainScript.CountdownStart());
+        }
+        else
+        {
+            transform.localScale = playerSize;
+        }
     }
 
     public void Respawn()
     {
-        transform.position = Vector3.zero;
-        transform.rotation = Quaternion.identity;
+        transform.rotation = new Quaternion(0, 0, UnityEngine.Random.Range(-180, 180), 0);
         transform.localScale = playerSize;
 
         gun = UnityEngine.Random.Range(1, 4);
