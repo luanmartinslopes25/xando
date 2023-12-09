@@ -18,13 +18,13 @@ public class Players : MonoBehaviour
     public float moveSpeed = 64;
     private Vector2 movement;
 
-    private Vector2 jumpSpeed;
     public bool haveGround = true;
     public bool isJumping = false;
     public Vector3 playerSize = new Vector3(1, 1, 1);
     public Vector3 jumpHeight = new Vector3(1.5f, 1.5f, 1.5f);
     public float jumpSpeedMulti = 16;
     public float gravity = 0.05f;
+    private Vector2 jumpSpeed;
 
     public int score;
 
@@ -39,6 +39,8 @@ public class Players : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.inertia = spinResistence;
         playerSize = transform.localScale;
+
+        score = 0;
     }
 
     // Update is called once per frame
@@ -46,12 +48,12 @@ public class Players : MonoBehaviour
     {
         if (mainScript.ready)
         {
-
-            // Move
+          // Move
             float moveHorizontal = Input.GetAxis(Horizontal);
             float moveVertical = Input.GetAxis(Vertical);
 
             movement = new Vector2(moveHorizontal, moveVertical);
+            movement *= Time.deltaTime;
             movement = movement.normalized;
 
             if (!isJumping)
@@ -59,12 +61,13 @@ public class Players : MonoBehaviour
                 rb.AddForce(movement * moveSpeed);
                 if (rb.velocity.x != 0)
                 {
-                    jumpSpeed = rb.velocity * jumpSpeedMulti;
+                    jumpSpeed = rb.velocity * Time.deltaTime;
+                    jumpSpeed = jumpSpeed.normalized;
                 }
             }
             else
             {
-                rb.AddForce(jumpSpeed);
+                rb.AddForce(jumpSpeed * jumpSpeedMulti);
             }
 
 
@@ -109,20 +112,11 @@ public class Players : MonoBehaviour
     private IEnumerator JumpUpCoroutine()
     {
         isJumping = true;
-        Vector2 jumpBalanced = movement;
-        rb.velocity = rb.velocity + jumpBalanced*1.5f;
-        yield return new WaitForSeconds(0.01f);
-        rb.velocity = rb.velocity + jumpBalanced;
-        yield return new WaitForSeconds(0.01f);
-        rb.velocity = rb.velocity + jumpBalanced/1.5f;
-        yield return new WaitForSeconds(0.01f);
-        rb.velocity = rb.velocity + jumpBalanced/3;
-        yield return new WaitForSeconds(0.01f);
 
         while (transform.localScale.y < jumpHeight.y)
         {
             JumpUp();
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.007f);
         }
 
         StartCoroutine(JumpDownCoroutine());
@@ -138,7 +132,7 @@ public class Players : MonoBehaviour
         while (transform.localScale.y > playerSize.y)
         {
             JumpDown();
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.005f);
         }
 
         isJumping = false;
@@ -150,14 +144,14 @@ public class Players : MonoBehaviour
 
     private void JumpDown()
     {
-        transform.localScale -= new Vector3(gravity, gravity, gravity);
+        transform.localScale -= new Vector3(gravity, gravity, 0);
     }
 
     private IEnumerator Die()
     {
         while (transform.localScale.y > 0)
         {
-            transform.localScale -= new Vector3(gravity, gravity, gravity);
+            transform.localScale -= new Vector3(gravity, gravity, 0);
             yield return new WaitForEndOfFrame();
         }
         if (mainScript.ready)
@@ -175,7 +169,7 @@ public class Players : MonoBehaviour
 
     public void Respawn()
     {
-        transform.rotation = new Quaternion(0, 0, UnityEngine.Random.Range(-180, 180), 0);
+        transform.rotation = new Quaternion(0, 0, 0, UnityEngine.Random.Range(-180, 180));
         transform.localScale = playerSize;
 
         gun = UnityEngine.Random.Range(1, 4);

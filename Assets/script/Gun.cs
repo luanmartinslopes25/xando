@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public Main mainScript;
+
     [SerializeField]
     private GameObject bulletPrefab;
     [SerializeField]
@@ -24,15 +26,18 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton(fire))
+        if (mainScript.ready)
         {
-            float timeSinceLastFire = Time.time - lastFireTime;
-
-            if (timeSinceLastFire >+ bulletCooldown)
+            if (Input.GetButton(fire))
             {
-                Fire();
+                float timeSinceLastFire = Time.time - lastFireTime;
 
-                lastFireTime = Time.time;
+                if (timeSinceLastFire > +bulletCooldown)
+                {
+                    Fire();
+
+                    lastFireTime = Time.time;
+                }
             }
         }
     }

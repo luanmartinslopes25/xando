@@ -193,8 +193,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 84965883}
-  - component: {fileID: 84965885}
   - component: {fileID: 84965884}
+  - component: {fileID: 84965885}
   m_Layer: 0
   m_Name: Bazooka
   m_TagString: Untagged
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScript: {fileID: 519420033}
   bulletPrefab: {fileID: 4316839718434926507, guid: f40f014963ccf1c40846147606a2ae8d, type: 3}
   bulletSpeed: 10
   bulletCooldown: 0.4
@@ -468,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScript: {fileID: 519420033}
   bulletPrefab: {fileID: 4316839718434926507, guid: 61f34fc4c1ae8dd4aa4134815cf57e4f, type: 3}
   bulletSpeed: 6
   bulletCooldown: 1.6
@@ -1188,6 +1190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScript: {fileID: 519420033}
   bulletPrefab: {fileID: 4316839718434926507, guid: 04c49c243471b674c8a37ab5ba5d95b0, type: 3}
   bulletSpeed: 7.2
   bulletCooldown: 0.24
@@ -1342,6 +1345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScript: {fileID: 519420033}
   bulletPrefab: {fileID: 4316839718434926507, guid: 04c49c243471b674c8a37ab5ba5d95b0, type: 3}
   bulletSpeed: 7.2
   bulletCooldown: 0.24
@@ -1453,17 +1457,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainScript: {fileID: 519420033}
   Spin: Spin1
-  spinSpeed: 48
-  spinResistence: 80
+  spinSpeed: 52
+  spinResistence: 76
   Horizontal: Horizontal1
   Vertical: Vertical1
-  moveSpeed: 64
+  moveSpeed: 320
   haveGround: 1
   isJumping: 0
   playerSize: {x: 1, y: 1, z: 1}
-  jumpHeight: {x: 2, y: 2, z: 2}
-  jumpSpeedMulti: 24
-  gravity: 0.025
+  jumpHeight: {x: 1.75, y: 1.75, z: 1}
+  jumpSpeedMulti: 512
+  gravity: 0.032
   score: 0
   gun: 0
   gun1: {fileID: 1884863750}
@@ -2322,6 +2326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScript: {fileID: 519420033}
   bulletPrefab: {fileID: 4316839718434926507, guid: f40f014963ccf1c40846147606a2ae8d, type: 3}
   bulletSpeed: 8
   bulletCooldown: 0.64
@@ -2373,6 +2378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScript: {fileID: 519420033}
   bulletPrefab: {fileID: 4316839718434926507, guid: 61f34fc4c1ae8dd4aa4134815cf57e4f, type: 3}
   bulletSpeed: 6
   bulletCooldown: 1.6
@@ -2643,6 +2649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f8c7a4469808b445a9fa89dee2f25ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainScript: {fileID: 519420033}
   bulletPrefab: {fileID: 4316839718434926507, guid: f40f014963ccf1c40846147606a2ae8d, type: 3}
   bulletSpeed: 8
   bulletCooldown: 0.64
@@ -2811,17 +2818,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainScript: {fileID: 519420033}
   Spin: Spin2
-  spinSpeed: 48
-  spinResistence: 80
+  spinSpeed: 52
+  spinResistence: 76
   Horizontal: Horizontal2
   Vertical: Vertical2
-  moveSpeed: 64
+  moveSpeed: 320
   haveGround: 1
   isJumping: 0
   playerSize: {x: 1, y: 1, z: 1}
-  jumpHeight: {x: 2, y: 2, z: 2}
-  jumpSpeedMulti: 24
-  gravity: 0.025
+  jumpHeight: {x: 1.75, y: 1.75, z: 1}
+  jumpSpeedMulti: 512
+  gravity: 0.032
   score: 0
   gun: 0
   gun1: {fileID: 1612500229}
