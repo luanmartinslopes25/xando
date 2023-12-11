@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public int penetration = 1;
     public float maxTime = 8;
     public int particles = 1;
+    private Vector3 aceleration;
 
     Rigidbody2D rb;
 
@@ -22,6 +23,12 @@ public class Bullet : MonoBehaviour
         rb.inertia = 0;
 
         StartCoroutine(TimeDespawn());
+        aceleration = rb.velocity;
+    }
+
+    private void Update()
+    {
+        rb.AddForce(aceleration / 2);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -60,7 +67,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator Penetration()
     {
-        yield return new WaitForSeconds(0.45f);
+        yield return new WaitForSeconds(0.64f);
         Splash(2.4f);
         Destroy(gameObject);
     }

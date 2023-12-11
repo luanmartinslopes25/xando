@@ -1195,7 +1195,7 @@ MonoBehaviour:
   bulletSpeed: 7.2
   bulletCooldown: 0.24
   bulletAmount: 1
-  spread: 0.32
+  spread: 0.2
   fire: Fire2
 --- !u!1 &846219990
 GameObject:
@@ -1350,7 +1350,7 @@ MonoBehaviour:
   bulletSpeed: 7.2
   bulletCooldown: 0.24
   bulletAmount: 1
-  spread: 0.32
+  spread: 0.2
   fire: Fire1
 --- !u!212 &849010582
 SpriteRenderer:
@@ -1461,13 +1461,13 @@ MonoBehaviour:
   spinResistence: 76
   Horizontal: Horizontal1
   Vertical: Vertical1
-  moveSpeed: 320
+  moveSpeed: 128
   haveGround: 1
   isJumping: 0
   playerSize: {x: 1, y: 1, z: 1}
   jumpHeight: {x: 1.75, y: 1.75, z: 1}
-  jumpSpeedMulti: 512
-  gravity: 0.032
+  jumpSpeedMulti: 216
+  gravity: 0.024
   score: 0
   gun: 0
   gun1: {fileID: 1884863750}
@@ -2822,13 +2822,13 @@ MonoBehaviour:
   spinResistence: 76
   Horizontal: Horizontal2
   Vertical: Vertical2
-  moveSpeed: 320
+  moveSpeed: 128
   haveGround: 1
   isJumping: 0
   playerSize: {x: 1, y: 1, z: 1}
   jumpHeight: {x: 1.75, y: 1.75, z: 1}
-  jumpSpeedMulti: 512
-  gravity: 0.032
+  jumpSpeedMulti: 216
+  gravity: 0.024
   score: 0
   gun: 0
   gun1: {fileID: 1612500229}

@@ -43,6 +43,9 @@ public class Main : MonoBehaviour
         player1.Respawn();
         player2.Respawn();
 
+        player1.Stop();
+        player2.Stop();
+
         ready = false;
 
         StartCoroutine(SpawnPessoasDivertidas());

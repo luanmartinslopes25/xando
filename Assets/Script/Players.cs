@@ -59,7 +59,7 @@ public class Players : MonoBehaviour
             if (!isJumping)
             {
                 rb.AddForce(movement * moveSpeed);
-                if (rb.velocity.x != 0)
+                if (rb.velocity.x != 0 || rb.velocity.y != 0)
                 {
                     jumpSpeed = rb.velocity * Time.deltaTime;
                     jumpSpeed = jumpSpeed.normalized;
@@ -81,6 +81,14 @@ public class Players : MonoBehaviour
 
                 rb.AddTorque(angularVelocity * spinSpeed);
             }
+        }
+    }
+
+    public void Stop()
+    {
+        if (rb != null)
+        {
+            rb.velocity = Vector3.zero;
         }
     }
 
@@ -169,7 +177,7 @@ public class Players : MonoBehaviour
 
     public void Respawn()
     {
-        transform.rotation = new Quaternion(0, 0, 0, UnityEngine.Random.Range(-180, 180));
+        transform.rotation = new Quaternion(0, 0, UnityEngine.Random.Range(-180, 180), UnityEngine.Random.Range(-180, 180));
         transform.localScale = playerSize;
 
         gun = UnityEngine.Random.Range(1, 4);
@@ -191,6 +199,5 @@ public class Players : MonoBehaviour
             gun2.gameObject.SetActive(false);
             gun3.gameObject.SetActive(true);
         }
-
     }
 }
