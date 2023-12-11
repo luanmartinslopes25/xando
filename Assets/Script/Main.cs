@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Main : MonoBehaviour
@@ -9,6 +10,10 @@ public class Main : MonoBehaviour
     public Players player2;
     public Text score1;
     public Text score2;
+
+    public GameObject P1Win;
+    public GameObject P2Win;
+    public bool showZero = false;
 
     public int countdownTime = 3;
     public float timerSpeed = 0.4f;
@@ -30,6 +35,7 @@ public class Main : MonoBehaviour
     void Start()
     {
         StartCoroutine(CountdownStart());
+        Time.timeScale = 1;
     }
 
 
@@ -39,6 +45,19 @@ public class Main : MonoBehaviour
         // é invertido porque o score aumenta quando morre
         score1.text = player2.score.ToString();
         score2.text = player1.score.ToString();
+
+        if (player1.score >= 10)
+        {
+            P2Win.SetActive(true);
+            Time.timeScale = 0;
+            showZero = true;
+        }
+        else if (player2.score >= 10)
+        {
+            P1Win.SetActive(true);
+            Time.timeScale = 0;
+            showZero = true;
+        }
 
         player1.Respawn();
         player2.Respawn();
@@ -53,6 +72,10 @@ public class Main : MonoBehaviour
         currentCountdownTime = countdownTime;
         countdownDisplay.text = currentCountdownTime.ToString();
         countdownDisplay.gameObject.SetActive(true);
+        if (showZero)
+        {
+            countdownDisplay.gameObject.SetActive(false);
+        }
         while (currentCountdownTime > 0)
         {
             countdownDisplay.text = currentCountdownTime.ToString();
