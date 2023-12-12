@@ -69,10 +69,10 @@ public class Players : MonoBehaviour
                 {
                     jumpSpeed = rb.velocity * Time.deltaTime;
                     jumpSpeed = jumpSpeed.normalized;
-                    if (multiplySpeed == 0.1f)
-                    {
-                        StartCoroutine(MultiplySpeed());
-                    }
+                }
+                if (multiplySpeed == 0.1f)
+                {
+                    StartCoroutine(MultiplySpeed());
                 }
             }
             else //pulando
