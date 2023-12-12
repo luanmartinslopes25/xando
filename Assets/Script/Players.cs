@@ -17,6 +17,7 @@ public class Players : MonoBehaviour
     public string Vertical;
     public float moveSpeed = 320;
     private Vector2 movement;
+    public float multiplySpeed = 0.1f;
 
     public bool haveGround = true;
     public bool isJumping = false;
@@ -63,14 +64,18 @@ public class Players : MonoBehaviour
 
             if (!isJumping)
             {
-                rb.AddForce(movement * moveSpeed);
+                rb.AddForce(movement * moveSpeed * multiplySpeed);
                 if (rb.velocity.x != 0 || rb.velocity.y != 0)
                 {
                     jumpSpeed = rb.velocity * Time.deltaTime;
                     jumpSpeed = jumpSpeed.normalized;
+                    if (multiplySpeed == 0.1f)
+                    {
+                        StartCoroutine(MultiplySpeed());
+                    }
                 }
             }
-            else
+            else //pulando
             {
                 rb.AddForce(jumpSpeed * jumpSpeedMulti);
             }
@@ -187,24 +192,34 @@ public class Players : MonoBehaviour
         transform.rotation = new Quaternion(0, 0, UnityEngine.Random.Range(-180, 180), UnityEngine.Random.Range(-180, 180));
         transform.localScale = playerSize;
 
+        gun1.gameObject.SetActive(false);
+        gun2.gameObject.SetActive(false);
+        gun3.gameObject.SetActive(false);
+
         gun = UnityEngine.Random.Range(1, 4);
         if     (gun == 1)
         {
             gun1.gameObject.SetActive(true);
-            gun2.gameObject.SetActive(false);
-            gun3.gameObject.SetActive(false);
         }
         else if(gun == 2)
         {
-            gun1.gameObject.SetActive(false);
             gun2.gameObject.SetActive(true);
-            gun3.gameObject.SetActive(false);
         }
         else if(gun == 3)
         {
-            gun1.gameObject.SetActive(false);
-            gun2.gameObject.SetActive(false);
             gun3.gameObject.SetActive(true);
         }
+    }
+
+    private IEnumerator MultiplySpeed()
+    {
+        while (rb.velocity.x > 0.1f || rb.velocity.x < -0.1f || rb.velocity.y > 0.1f || rb.velocity.y < -0.1f)
+        {
+            multiplySpeed += 0.16f;
+            yield return new WaitForSeconds(0.08f);
+        }
+
+        multiplySpeed -= 0.32f;
+        yield return new WaitForSeconds(0.01f);
     }
 }
