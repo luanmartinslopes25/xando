@@ -33,6 +33,9 @@ public class Players : MonoBehaviour
     public GameObject gun2;
     public GameObject gun3;
 
+
+    public GameObject fallAudio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +44,8 @@ public class Players : MonoBehaviour
         playerSize = transform.localScale;
 
         score = 0;
+
+        fallAudio.SetActive(false);
     }
 
     // Update is called once per frame
@@ -157,6 +162,8 @@ public class Players : MonoBehaviour
 
     private IEnumerator Die()
     {
+        fallAudio.SetActive(false);
+        fallAudio.SetActive(true);
         while (transform.localScale.y > 0)
         {
             transform.localScale -= new Vector3(gravity, gravity, 0);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
+
 public class Gun : MonoBehaviour
 {
     public Main mainScript;
@@ -22,6 +23,14 @@ public class Gun : MonoBehaviour
 
     public string fire;
 
+
+    public GameObject shootAudio;
+
+
+    private void Start()
+    {
+        shootAudio.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,6 +53,7 @@ public class Gun : MonoBehaviour
 
     private void Fire()
     {
+        shootAudio.SetActive(false);
         for (int i = 0; i < bulletAmount; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
@@ -52,5 +62,6 @@ public class Gun : MonoBehaviour
             Vector2 pdir = Vector2.Perpendicular(dir) * UnityEngine.Random.Range(-spread, spread);
             rb.velocity = (dir + pdir) * bulletSpeed;
         }
+        shootAudio.SetActive(true);
     }
 }
