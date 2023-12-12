@@ -15,7 +15,7 @@ public class Players : MonoBehaviour
 
     public string Horizontal;
     public string Vertical;
-    public float moveSpeed = 64;
+    public float moveSpeed = 320;
     private Vector2 movement;
 
     public bool haveGround = true;

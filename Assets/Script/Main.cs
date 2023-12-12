@@ -38,7 +38,10 @@ public class Main : MonoBehaviour
         Time.timeScale = 1;
     }
 
-
+    public void Update()
+    {
+        
+    }
 
     public IEnumerator CountdownStart()
     {

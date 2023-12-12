@@ -194,7 +194,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.29
-  m_Text: "equipe\n\nLuan - programador chefe\nHeitor - artista e sonoplasta\n\n\nFONTS\n\nCrang
+  m_Text: "equipe\n\nLuan - programador\nHeitor - artista e sonoplasta\n\n\nFONTS\n\nCrang
     by Caveras\nUpheaval by \xC6nigma\r\n\n\nSOUNDS\n\nquistard \r\nkwahmah_02\r\nmafon
     2\r\ninspectorj\r\nmatrixxx\n\n"
 --- !u!222 &562492244
@@ -788,7 +788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1273585, g: 0.5345912, b: 1, a: 1}
+  m_Color: {r: 0.1254902, g: 0.3764706, b: 0.627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
